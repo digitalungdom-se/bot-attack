@@ -2,3 +2,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "https://bot-attack.netlify.app/*"
+  to = "https://bot-attack.digitalungdom.se/:splat"
+  status = 301
+  force = true
