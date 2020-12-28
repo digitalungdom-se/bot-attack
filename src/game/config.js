@@ -1,0 +1,5 @@
+const TICKS_PER_SECONDS = 28;
+const MAP_WIDTH = 1200;
+const MAP_HEIGHT = 1200;
+
+export default { TICKS_PER_SECONDS, MAP_WIDTH, MAP_HEIGHT };

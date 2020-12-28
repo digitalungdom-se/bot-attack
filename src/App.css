@@ -1,0 +1,421 @@
+:root {
+  --main: #20c3d0;
+  --acc: #8be7ee;
+  --du: #1e6ee8;
+  --gr: #20d085;
+  --bgd: #00383a;
+  --wh: #eaffff;
+  --red: #ff0000;
+  --progress: 0%;
+}
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  background: var(--bgd);
+  color: var(--wh);
+}
+.bgd {
+  background: url(assets/bgd.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.overlay {
+  background: rgba(0, 56, 58,0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.container {
+  display: block;
+  position: relative;
+}
+nav {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  margin-top: 10px;
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+nav .container ul {
+  padding-left: 0;
+  display: inline;
+  margin: 0;
+}
+nav .container ul li {
+  display: inline-block;
+}
+nav .container ul li a {
+  display: inline-block;
+  padding: 7px 12px;
+  background: var(--wh);
+  color: var(--bgd) !important;
+  margin: 10px 0 0 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: 0.3s;
+}
+nav .container ul li a.selected {
+  font-weight: bold;
+}
+nav .container .mobilemenu {
+  display: none;
+  background: #004142;
+  color: var(--wh) !important;
+}
+nav .container .mobilemenu:hover {
+  background: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+nav .container ul li a:hover {
+  background-color: var(--acc);
+}
+nav .container ul li a.about {
+  background-color: var(--main);
+  color: var(--bgd);
+}
+nav .container ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+.hero img {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  z-index: 1;
+  position: relative;
+}
+.hero {
+  padding-top: 70px;
+  text-align: center;
+  padding-bottom: 100px;
+  position: relative;
+}
+.hero h1 {
+  text-transform: uppercase;
+  font-size: 2.4em;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+}
+.hero h2 {
+  opacity: 0.7;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+}
+.hero h3 {
+  font-size: 1em;
+  margin-bottom: 25px;
+  z-index: 1;
+  position: relative;
+}
+
+.footer a {
+  text-decoration: none;
+  display: block;
+  font-size: 0.8em;
+  font-weight: 400 !important;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+.footer a img {
+  margin-right: 5px;
+}
+
+/**
+ * 
+ * Countdown element
+ *
+ */
+
+.countdown {
+  margin: 0 auto;
+  width: 480px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+.countdown .time {
+  padding: 15px;
+  border: solid transparent;
+  border-width: 5px 0 30px 0;
+  position: relative;
+}
+.countdown .time span {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0 25px;
+  position: relative;
+  white-space: nowrap;
+  text-shadow: 0 0 20px var(--wh);
+}
+.countdown .time span::after {
+  height: 20px;
+  font-size: 14px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#days::after {content: "dagar";}
+#hours::after {content: "timmar";}
+#minutes::after {content: "minuter";}
+#seconds::after {content: "sekunder";}
+.inset {
+  border-radius: 0;
+  -webkit-box-shadow: inset 0px 0px 31px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: inset 0px 0px 31px 0px rgba(0,0,0,0.6);
+  box-shadow: inset 0px 0px 31px 0px rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.1);
+}
+.countdown .container .label {
+  position: absolute;
+  background-color: var(--wh);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: var(--bgd);
+  font-size: 12px;
+  font-weight: bold;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/**
+ * 
+ * Header Countdown element
+ *
+ */
+
+ .header-countdown {
+  display: inline-block;
+  margin: 10px 20px 0 20px;
+  white-space: nowrap;
+  position: relative;
+  font-size: 0.9em;
+}
+.header-countdown .time {
+  padding: 7px 12px;
+  position: relative;
+  display: inline-block;
+  background-color: var(--gr);
+}
+.header-countdown .time span {
+  position: relative;
+  white-space: nowrap;
+  text-shadow: 0 0 20px var(--wh);
+}
+.header-countdown .container .label {
+  background-color: var(--wh);
+  padding: 7px 12px;
+  color: var(--bgd);
+  display: inline-block;
+}
+
+/**
+ * 
+ * Progressbar element
+ *
+ */
+
+.progressbar {
+  height: 15px;
+  width: 60vw;
+  margin: 50px auto;
+  background-color: rgba(0,0,0,0.3);
+  border: solid transparent;
+  border-width: 0 20px;
+  position: relative;
+  margin-bottom: 0;
+  z-index: 1;
+}
+.progressbar::before, .progressbar::after {
+  font-size: 14px;
+  height: 20px;
+  position: absolute;
+  top: -30px;
+}
+.progressbar::before {
+  content: attr(s-date);
+  left: 0;
+  transform: translateX(-50%);
+}
+.progressbar::after {
+  content: attr(e-date);
+  right: 0;
+  transform: translateX(50%);
+}
+.progress {
+  background-color: var(--main);
+  width: var(--progress);
+  height: 100%;
+  position: relative;
+  animation: grow 2s;
+}
+.progress::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url(assets/annafrozen.svg);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%,-25%);
+  background-size: contain;
+}
+.progress::before {
+  content: "Du är här";
+  font-style: italic;
+  position: absolute;
+  font-size: 12px;
+  right: 0;
+  transform: translateX(50%);
+  bottom: -30px;
+}
+@keyframes grow {
+  from {width: 0;}
+  to {width: var(--progress);}
+}
+
+/**
+ * 
+ * Terminal element
+ *
+ */
+
+.terminal-container {
+  position: relative;
+  background-color: #002122;
+}
+.terminal-fullpage {
+  min-height: 100vh;
+}
+.terminal-fullpage .terminal {
+  padding-top: 20vh;
+}
+.terminal {
+  width: 50vw;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 30px;
+  line-height: 1.2;
+}
+.terminal pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+.terminal a {
+  color: white;
+  font-weight: bold;
+}
+
+/**
+ * 
+ * Scoreboard
+ *
+ */
+
+.scoreboard {
+  padding: 100px 20vw 0 20vw;
+  height: calc(100vh - 100px);
+  background-color: #002122;
+}
+.scoreboard h1 {
+  position: relative;
+  z-index: 1;
+  color:var(--gr);
+  text-align: center;
+}
+.scoreboard h1::before {
+  content: "";
+  height: 9px;
+  width: 9px;
+  margin-right: 8px;
+  background: var(--gr);
+  display: inline-block;
+  border-radius: 100%;
+  vertical-align: middle;
+  animation: sync 2s infinite alternate;
+}
+@keyframes sync {
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+.toplist {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 100%;
+}
+.toplist tr th {
+  text-align: left;
+}
+.scoreboard table {
+  width: 100%;
+  max-width: 300px;
+}
+.scoreboard table tr:nth-child(-n+4) {font-weight: bold;}
+.scoreboard table tr:nth-child(1) {font-size: 0.9em;text-transform: uppercase;}
+.scoreboard table tr {
+  width: 100%;
+  text-align: center;
+}
+#canvas {
+  background: linear-gradient(45deg, var(--acc), #75ecf5, var(--main));
+}
+
+/**
+ * 
+ * Screen size adjustments
+ *
+ */
+
+@media only screen and (max-width: 768px) {
+  .terminal {width: 80vw;font-size: 12px;}
+
+  /*Making the menu mobile friendly*/
+  nav .container ul li a:not(.mobilemenu) {
+    display: none;
+  }
+  nav .container .mobilemenu {
+    display: block;
+  }
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 640px) and (orientation: landscape) {
+  .terminal {font-size: 9px;}
+}
+@media only screen and (max-width: 640px) {
+  .nomobile {display: none;}
+
+  /*Terminal*/
+  .terminal {width: 100%;padding:0;font-size: 12px;}
+  .terminal-container {padding: 30px;}
+  .terminal-fullpage {padding: 0 30px;}
+
+  /*Countdown*/
+  .countdown {width: 100vw;}
+  .countdown .time span {font-size: 30px;margin: 0 15px;}
+  .countdown .time span::after {font-size: 12px;}
+
+  /*Progressbar*/
+  .progressbar {display: none;}
+
+  /*Hero info*/
+  .hero {padding-bottom: 70px;}
+  .hero img {width: 300px;}
+
+  /*Navbar*/
+  .header-countdown .container .label {
+    display: none;
+  }
+}
