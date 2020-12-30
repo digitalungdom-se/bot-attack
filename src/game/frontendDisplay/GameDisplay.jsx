@@ -5,7 +5,7 @@ import { FromServer } from "../client/messageTypes";
 const GameDisplay = ({ setHallOfFame }) => {
   const canvasRef = React.useRef(null);
   const [context, setContext] = React.useState(null);
-  const webSocket = new WebSocket("ws://api.bot-attack.digitalungdom.se");
+  const webSocket = new WebSocket("wss://api.bot-attack.digitalungdom.se");
 
   webSocket.addEventListener("open", () => {
     webSocket.onmessage = function (event) {
